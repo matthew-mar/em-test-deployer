@@ -22,6 +22,12 @@ cp db_init.example.ini db_init.ini
 python3 db_init.py
 ```
 
+### Задать параметры БД
+
+```bash
+cp db.env.example db.env
+```
+
 ### Запуск приложения
 
 ```bash
