@@ -15,6 +15,7 @@ parser.read(CONFIG_FILE_PATH)
 def create_service_sheme(service_name: str) -> None:
     query = """
     CREATE USER {username} WITH PASSWORD '{password}';
+    ALTER ROLE {username} CREATEDB;
     CREATE SCHEMA IF NOT EXISTS {schema} AUTHORIZATION {username};
     """.format_map({
         "username": parser.get(service, "username"),
