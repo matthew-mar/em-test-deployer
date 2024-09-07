@@ -12,33 +12,40 @@ services:
     networks:
       - em_network
   
-  products-service:
-    build:
-      context: ./services/products/
-      dockerfile: Dockerfile
-    container_name: products-service
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-    volumes:
-      - ./services/products:/app:z
-    user: root
-    networks:
-      - em_network
+  # products-service:
+  #   build:
+  #     context: ./services/products/
+  #     dockerfile: Dockerfile
+  #   container_name: products-service
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - ./services/products:/app:z
+  #   user: root
+  #   networks:
+  #     - em_network
 
-  history-service:
-    build:
-      context: ./services/history/
-      dockerfile: Dockerfile
-    container_name: history-service
+  # history-service:
+  #   build:
+  #     context: ./services/history/
+  #     dockerfile: Dockerfile
+  #   container_name: history-service
+  #   ports:
+  #     - "3001:3001"
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - ./services/history:/app:z
+  #   user: root
+  #   networks:
+  #     - em_network
+
+  redis:
+    image: redis:alpine
     ports:
-      - "3001:3001"
-    depends_on:
-      - db
-    volumes:
-      - ./services/history:/app:z
-    user: root
+      - "6379:6379"
     networks:
       - em_network
 
